@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AyType - Cyber Typing</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Space Background Elements -->
+  <div class="space-background">
+    <!-- Stars -->
+    <div class="stars-layer">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+    </div>
+    
+    <!-- Planets -->
+    <div class="planet1"></div>
+    <div class="planet2"></div>
+    <div class="planet3"></div>
+    
+<!-- Rocket 1 -->
+<div class="rocket">
+  <div class="rocket-nose"></div>
+  <div class="rocket-body"></div>
+  <div class="rocket-window"></div>
+  <div class="rocket-fin-top"></div>
+  <div class="rocket-fin-bottom"></div>
+  <div class="rocket-flame"></div>
+</div>
+
+<!-- Rocket 2 (for continuous effect) -->
+<div class="rocket2">
+  <div class="rocket-nose"></div>
+  <div class="rocket-body"></div>
+  <div class="rocket-window"></div>
+  <div class="rocket-fin-top"></div>
+  <div class="rocket-fin-bottom"></div>
+  <div class="rocket-flame"></div>
+</div>
+    
+    <!-- Shooting Stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+  </div>
+
+  <div class="container">
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <!-- ========== HEADER / NAVBAR ========== -->
+    <header>
+      <nav class="navbar">
+        <h1 class="logo glitch" data-text="AyType">AYTYPE</h1>
+        <div class="nav-buttons">
+          <button id="btnHome" class="nav-btn">Home</button>
+          <button id="btnTyping" class="nav-btn">Practice</button>
+          <button id="btnMode" class="nav-btn">Mode</button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+
+      <!-- ===== Home Section ===== -->
+      <section id="homeSection" class="content-section active">
+        <h2>Selamat Datang di <span class="neon-text">AyType</span></h2>
+        <p>Uji kecepatan dan akurasi mengetikmu di dunia digital.</p>
+        <p>Pilih "Tes Mengetik" untuk memulai latihanmu.</p>
+      </section>
+
+      <!-- ===== Typing Test Section ===== -->
+      <section id="typingSection" class="content-section" class="hidden">
+        <div class="typing-container">
+          <div class="typing-wrapper">
+            <div id="wordbar" class="word-bar"></div>
+          </div>
+
+          <div class="input-timer-wrapper">
+            <div class="timer-box">
+              <span id="timer">60</span>
+            </div>
+            <div id="inputBar">
+              <input 
+                type="text"
+                id="input"
+                class="typing-input"
+                placeholder="Mulai mengetik..."
+                autocomplete="off"
+                autofocus
+              />
+            </div>
+            <button class="btn-restart" onclick="restartTest()">Refresh</button>
+          </div>
+
+          <div id="resultStruk" class="receipt-card hidden">
+            <h2>• AyType Test •</h2>
+            <p class="date-line">
+              <span id="dayName"></span>
+              <span id="fullDate"></span>
+            </p>
+            <hr />
+            <p class="wpm">0 WPM</p>
+            <hr />
+            <div class="result-section">
+              <p>Total Benar     : 0 kata</p>
+              <p>Total Salah     : 0 kata</p>
+              <p>Akurasi         : 0,00%</p>
+              <p>Total Karakter  : 0</p>
+              <p class="indent">Hijau : 0</p>
+              <p class="indent">Merah : 0</p>
+              <p>Waktu           : 60 Detik</p>
+              <p>Title           : <span id="title">-</span></p>
+            </div>
+            <hr />
+            <div class="motivasi">
+              <p>Hasil Test kamu HEBAT!</p>
+              <p>Test selanjutnya harus lebih baik ya!</p>
+            </div>
+            <hr />
+            <p class="footer">TERIMAKASIH TELAH BERMAIN!!!</p>
+            <hr />
+            <div class="buttons">
+              <button id="btnShareResult">Bagikan Hasil</button>
+              <button id="btnRestartTest">Mulai Test Baru</button>
+              <button id="btnDownloadImage" class="btn-download">Download Gambar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Virtual Keyboard -->
+        <div id="virtualKeyboard">
+          <div class="keyboard">
+            <div class="key-row">
+              <div class="key" data-key="Q">Q</div>
+              <div class="key" data-key="W">W</div>
+              <div class="key" data-key="E">E</div>
+              <div class="key" data-key="R">R</div>
+              <div class="key" data-key="T">T</div>
+              <div class="key" data-key="Y">Y</div>
+              <div class="key" data-key="U">U</div>
+              <div class="key" data-key="I">I</div>
+              <div class="key" data-key="O">O</div>
+              <div class="key" data-key="P">P</div>
+            </div>
+            <div class="key-row">
+              <div class="key" data-key="A">A</div>
+              <div class="key" data-key="S">S</div>
+              <div class="key" data-key="D">D</div>
+              <div class="key" data-key="F">F</div>
+              <div class="key" data-key="G">G</div>
+              <div class="key" data-key="H">H</div>
+              <div class="key" data-key="J">J</div>
+              <div class="key" data-key="K">K</div>
+              <div class="key" data-key="L">L</div>
+            </div>
+            <div class="key-row">
+              <div class="key" data-key="Z">Z</div>
+              <div class="key" data-key="X">X</div>
+              <div class="key" data-key="C">C</div>
+              <div class="key" data-key="V">V</div>
+              <div class="key" data-key="B">B</div>
+              <div class="key" data-key="N">N</div>
+              <div class="key" data-key="M">M</div>
+            </div>
+            <div class="key-row">
+              <div class="key space-key" data-key=" ">Space</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!-- ===== Mode Section ===== -->
+<section id="modeSection" class="content-section">
+  <h2>Game Mode</h2>
+  <div class="mode-grid">
+    <!-- Classic Mode -->
+    <div class="mode-card" data-mode="classic">
+      <div class="mode-icon">🎮</div>
+      <h3>AYTYPE GAME</h3>
+      <p>Mode Game akan segera hadir bosku</p>
+      <div class="mode-status">Coming Soon</div>
+    </div>
+    
+    <!-- Challenge Mode -->
+    <div class="mode-card" data-mode="challenge">
+      <div class="mode-icon">🎮</div>
+      <h3>AYTYPE GAME</h3>
+      <p>Mode Game akan segera hadir bosku</p>
+      <div class="mode-status">Coming Soon</div>
+    </div>
+    
+    <!-- Zen Mode -->
+    <div class="mode-card" data-mode="zen">
+      <div class="mode-icon">🎮</div>
+      <h3>AYTYPE GAME</h3>
+      <p>Mode Game akan segera hadir bosku</p>
+      <div class="mode-status">Coming Soon</div>
+    </div>
+  </div>
+ </section>
+</main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+      <p>© 2025 AyType. Enter the Cyber-Grid.</p>
+    </footer>
+  </div>
+
+  <!-- External JS SCRIPT-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
